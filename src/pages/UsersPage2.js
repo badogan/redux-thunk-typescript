@@ -1,12 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import UsersList from "../components/UsersList";
-import UserInput from "../components/UserInput";
 
 const UsersPage = props => {
   return (
     <React.Fragment>
-      {/* <UserInput addUser={props.addUser} /> */}
       <UsersList users={props.users} updateUser={props.updateUser} deleteUser={props.deleteUser} />
     </React.Fragment>
   );

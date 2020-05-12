@@ -22,8 +22,14 @@ export default function manageUsers(
       return { ...state, users };
 
     case "UPDATE_USER":
-      state.users.find(user => user.id === action.id).name = action.updatedName;
-      return {...state}
+      const targetUser = state.users.find(user => user.id === action.id);
+      const targetIndex = state.users.indexOf(targetUser)
+      let usersPart1 = state.users.slice(0,targetIndex)
+      let usersPart2 = state.users.slice(targetIndex+1)
+      targetUser.name = action.updatedName
+      usersPart1.push(targetUser)
+      const updatedUsers = usersPart1.concat(usersPart2)
+      return {...state, users:updatedUsers}
 
     case "START_ADDING_ASTRONAUTS_REQUEST":
       return {
