@@ -11,11 +11,13 @@ class AppAstronauts extends Component {
  
   render() {
     const astronauts = this.props.astronauts.map((astro,index) => <li key={index}>{astro.title}</li>);
+    const length= this.props.astronauts.length
  
     return(
       <div>
           <Button onClick={(event) => this.handleOnClick(event)} variantColor="green">Button</Button>
           {this.props.requesting && <Spinner size="xl" />}
+          {length}
         {astronauts}
       </div>
     );

@@ -6,7 +6,7 @@ const UsersList = props => {
   return (
     <Flex align='center' flexWrap='wrap'>
       {props.users.map((user, index) => (
-        <UserCard key={index} user={user} deleteUser={props.deleteUser} />
+        <UserCard key={index} user={user} deleteUser={props.deleteUser} updateUser={props.updateUser}/>
       ))}
     </Flex>
   );

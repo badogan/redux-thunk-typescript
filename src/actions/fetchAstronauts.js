@@ -1,5 +1,5 @@
 export function fetchAstronauts() {
-  return dispatch => {
+  return (dispatch) => {
     dispatch({ type: "START_ADDING_ASTRONAUTS_REQUEST" });
     fetch("https://jsonplaceholder.typicode.com/photos")
       .then(response => response.json())

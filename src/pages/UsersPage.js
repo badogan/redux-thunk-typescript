@@ -7,7 +7,7 @@ const UsersPage = props => {
   return (
     <React.Fragment>
       <UserInput addUser={props.addUser} />
-      <UsersList users={props.users} deleteUser={props.deleteUser} />
+      <UsersList users={props.users} deleteUser={props.deleteUser} updateUser={props.updateUser} />
     </React.Fragment>
   );
 };
@@ -15,8 +15,10 @@ const UsersPage = props => {
 const mapStateToProps = state => ({ users: state.users });
 
 const mapDispatchToProps = dispatch => ({
-  addUser: name => dispatch({ type: "ADD_USER", name }),
-  deleteUser: id => dispatch({ type: "DELETE_USER", id })
+  addUser: name => dispatch({ type: "ADD_USER",name}),
+  deleteUser: id => dispatch({ type: "DELETE_USER", id }),
+  updateUser: (id,updatedName) => {
+      dispatch({type: "UPDATE_USER",id,updatedName})}
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersPage);
